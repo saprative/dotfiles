@@ -9,4 +9,4 @@
 	pu = push source master
 [core]
 	autocrlf = input
-	editor = vim\n
+	editor = vim
