@@ -1,0 +1,12 @@
+[user]
+	email = saprative@gmail.com
+	user = saprative
+	name = saprative
+
+[alias]
+	co = checkout
+	pm = push source master
+	pu = push source master
+[core]
+	autocrlf = input
+	editor = vim\n
