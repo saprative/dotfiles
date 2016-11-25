@@ -7,7 +7,7 @@
 	co = checkout
 	pm = push source master
 	pu = push source master
-	ca = !git add -A && git commit -m
+	ca = !git add . && git commit -m
 [core]
 	autocrlf = input
 	editor = vim
