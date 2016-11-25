@@ -7,6 +7,14 @@
 	co = checkout
 	pm = push source master
 	pu = push source master
+	ca = !git add -A && git commit -m
 [core]
 	autocrlf = input
 	editor = vim
+	excludesfile = /Users/saprativejana/.gitignore_global
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true

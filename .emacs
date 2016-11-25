@@ -31,6 +31,8 @@
 (require 'neotree)
 (global-set-key [f8] 'neotree-toggle)
 (require 'evil-leader)
+(require 'python-django)
+(require 'erc)
 
 
 
