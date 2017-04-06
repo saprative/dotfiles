@@ -77,6 +77,7 @@
  ;; If there is more than one, they won't work right.
  )
 ;; Limit lines to 80
+(setq-default fill-column 80)
 (setq visual-line-mode)
 ;;(setq longlines-wrap-follows-window-size)
 

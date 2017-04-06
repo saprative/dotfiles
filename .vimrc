@@ -115,6 +115,7 @@ Plugin 'tomtom/tlib_vim'
 Plugin 'garbas/vim-snipmate' " vim snipmate
 Plugin 'honza/vim-snippets'  " vim snippets suplement
 Plugin 'idanarye/vim-merginal' " vim for merginal
+Plugin 'farseer90718/vim-taskwarrior'
 
 " colours
 "Plugin 'michalbachowski/vim-wombat256mod'
@@ -137,11 +138,17 @@ Plugin 'cakebaker/scss-syntax.vim'
 Plugin 'itspriddle/vim-jquery' " Jquery plugin
 "Plugin 'klen/python-mode'
 Plugin 'pangloss/vim-javascript'
+Plugin 'moll/vim-node'
+Plugin 'ahayman/vim-nodejs-complete'
+Plugin 'jelera/vim-javascript-syntax'
 Plugin 'mxw/vim-jsx' " Reactjs plugin
 Plugin 'mklabs/vim-backbone' " Backbone plugin
 Plugin 'derekwyatt/vim-scala' " Scala
 Plugin 'gre/play2vim' " Play
 Plugin 'mitsuhiko/vim-jinja'
+Plugin 'chase/vim-ansible-yaml'
+Plugin 'fatih/vim-go'
+"Plugin 'klen/python-mode'
 
 call vundle#end()
 
@@ -157,6 +164,7 @@ call vundle#end()
 
 " Map vimrc
 nnoremap <leader>ev :split $MYVIMRC<cr>
+nmap <leader>tw :TW<cr>
 nmap <leader>dj :e ~/.virtualenvs/amahobby/lib/python3.5/site-packages/django<cr>
 nmap <leader>py :e ~/.virtualenvs/amahobby/lib/python3.5/site-packages/<cr>
 
@@ -257,6 +265,8 @@ let g:gitgutter_sign_column_always = 1
 "let g:syntastic_check_on_wq = 0
 "map <leader>sc :SyntasticToggleMode<CR>
 
+" Python lang setup
+"let g:pymode_python = 'python3'
 
 " Git raper shortcut
 map <leader>gt :MerginalToggle<CR>
