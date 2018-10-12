@@ -7,7 +7,7 @@ set number
 set mouse=a
 set ruler
 "set noexpandtab
-set clipboard=unnamed
+set clipboard=unnamedplus
 set nocompatible
 set smartcase
 set expandtab
@@ -55,6 +55,10 @@ filetype on
 filetype plugin on
 filetype plugin indent on    
 
+" Type specific setup
+autocmd Filetype javascript setlocal ts=2 sts=2 sw=2
+autocmd FileType typescript :set makeprg=tsc
+autocmd BufNewFile,BufRead *.ts set filetype=typescript
 " General Maps
 let mapleader="," " Leader map
 nmap <C-u> o<Esc>
@@ -87,7 +91,7 @@ Plugin 'gmarik/Vundle'
 
 " Utility
 Plugin 'scrooloose/nerdcommenter' " Comment plugin
-"Plugin 'Valloric/YouCompleteMe' " Auto complete all in one
+Plugin 'Valloric/YouCompleteMe' " Auto complete all in one
 Plugin 'tpope/vim-fugitive' " GitHub repo plugin
 Plugin 'scrooloose/nerdtree' " File browser
 Plugin 'kien/ctrlp.vim' " fuzzy find
@@ -95,14 +99,15 @@ Plugin 'tpope/vim-surround' " parenthesizing made easy
 Plugin 'Raimondi/delimitMate' " auto complete parenthesizing
 Plugin 'ervandew/supertab' " Autocomplete using tab
 Plugin 'christoomey/vim-tmux-navigator' " tmux navigator
-Plugin 'SirVer/ultisnips' " Codes to ease your writing
+Plugin 'wincent/command-t' " fuzzy finder
+"Plugin 'SirVer/ultisnips' " Codes to ease your writing
 Plugin 'KabbAmine/zeavim.vim' " Zeal plugin have to install zeal to use this plugin
 Plugin 'vimwiki/vimwiki' " Wikipedia personal for vim
 "Plugin 'vim-ctrlspace/vim-ctrlspace' " tab managemanet software
 Plugin 'Shougo/neocomplete' " Autocomplete for vim
 Plugin 'easymotion/vim-easymotion' "  Easy file traverser
 "Plugin 'msanders/snipmate.vim' " A textmate snippets
-Plugin 'gorkunov/smartgf.vim' " gf on steroids
+"Plugin 'gorkunov/smartgf.vim' " gf on steroids
 Plugin 'majutsushi/tagbar'
 Plugin 'xolox/vim-easytags'
 "Plugin 'scrooloose/syntastic' " Syntax checker
@@ -115,7 +120,8 @@ Plugin 'tomtom/tlib_vim'
 Plugin 'garbas/vim-snipmate' " vim snipmate
 Plugin 'honza/vim-snippets'  " vim snippets suplement
 Plugin 'idanarye/vim-merginal' " vim for merginal
-Plugin 'farseer90718/vim-taskwarrior'
+"Plugin 'farseer90718/vim-taskwarrior'
+Plugin 'hienvd/vim-stackoverflow'
 
 " colours
 "Plugin 'michalbachowski/vim-wombat256mod'
@@ -132,15 +138,16 @@ Plugin 'sukima/xmledit' " Html fast
 Plugin 'rstacruz/sparkup' " Html new syntax write
 Plugin 'davidhalter/jedi-vim' " Python autocomplete
 Plugin 'mjbrownie/vim-htmldjango_omnicomplete' " Django templates auto complete
-Plugin 'burnettk/vim-angular' " Angular autocomplete
+"Plugin 'burnettk/vim-angular' " Angular autocomplete
 Plugin 'cakebaker/scss-syntax.vim'
 "Plugin 'python-rope/ropevim' " Python autocomplete autoimport plugin
 Plugin 'itspriddle/vim-jquery' " Jquery plugin
 "Plugin 'klen/python-mode'
 Plugin 'pangloss/vim-javascript'
 Plugin 'moll/vim-node'
-Plugin 'ahayman/vim-nodejs-complete'
-Plugin 'jelera/vim-javascript-syntax'
+Plugin 'artur-shaik/vim-javacomplete2'
+"Plugin 'ahayman/vim-nodejs-complete'
+"Plugin 'jelera/vim-javascript-syntax'
 Plugin 'mxw/vim-jsx' " Reactjs plugin
 Plugin 'mklabs/vim-backbone' " Backbone plugin
 Plugin 'derekwyatt/vim-scala' " Scala
@@ -148,7 +155,12 @@ Plugin 'gre/play2vim' " Play
 Plugin 'mitsuhiko/vim-jinja'
 Plugin 'chase/vim-ansible-yaml'
 Plugin 'fatih/vim-go'
+Plugin 'rust-lang/rust.vim'
 "Plugin 'klen/python-mode'
+Plugin 'leafgarland/typescript-vim'
+Plugin 'Quramy/tsuquyomi'
+"Plugin 'Shougo/vimproc.vim'
+Plugin 'akz92/vim-ionic2'
 
 call vundle#end()
 
@@ -165,8 +177,8 @@ call vundle#end()
 " Map vimrc
 nnoremap <leader>ev :split $MYVIMRC<cr>
 nmap <leader>tw :TW<cr>
-nmap <leader>dj :e ~/.virtualenvs/amahobby/lib/python3.5/site-packages/django<cr>
-nmap <leader>py :e ~/.virtualenvs/amahobby/lib/python3.5/site-packages/<cr>
+nmap <leader>dj :e ~/.virtualenvs/tns/lib/python3.5/site-packages/django<cr>
+nmap <leader>py :e ~/.virtualenvs/tns/lib/python3.5/site-packages/<cr>
 
 " Airline config
 let g:airline#extensions#tabline#enabled = 1
@@ -264,6 +276,7 @@ let g:gitgutter_sign_column_always = 1
 "let g:syntastic_check_on_open = 1
 "let g:syntastic_check_on_wq = 0
 "map <leader>sc :SyntasticToggleMode<CR>
+let g:syntastic_javascript_checkers = ['eslint']
 
 " Python lang setup
 "let g:pymode_python = 'python3'
@@ -287,3 +300,4 @@ nnoremap <space>gb :Git branch<Space>
 nnoremap <space>go :Git checkout<Space>
 nnoremap <space>gps :Dispatch! git push<CR>
 nnoremap <space>gpl :Dispatch! git pull<CR>
+

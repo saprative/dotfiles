@@ -1,6 +1,4 @@
-					;Author @saprative
-					;Email: saprative@gmail.com
-					;List of Packages
+
 
 					;Packages
 (setq package-list '(evil))
@@ -19,8 +17,8 @@
 (add-to-list 'evil-emacs-state-modes 'nav-mode)
 (setq evil-motion-state-modes (append evil-emacs-state-modes evil-motion-state-modes))
 (setq evil-emacs-state-modes nil)
-;(require 'auto-complete-config)
-;(define-key ac-mode-map (kbd "M-TAB") 'auto-complete)
+(require 'auto-complete-config)
+(define-key ac-mode-map (kbd "M-TAB") 'auto-complete)
 ;; Solarized theme
 (require 'solarized-dark-theme )
 (set-frame-font '"Droid Sans Mono-18")
@@ -46,10 +44,6 @@
   (package-refresh-contents))
 
 
-; install the missing packages
-(dolist (package package-list)
-  (unless (package-installed-p package)
-    (package-install package)))
 
 					; Configuaration
 ;; Org mode global keys
