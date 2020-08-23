@@ -3,7 +3,7 @@
 
 "Basic Setup
 set number
-"set relativenumber
+set relativenumber
 set mouse=a
 set ruler
 "set noexpandtab
@@ -19,7 +19,7 @@ set splitright
 set laststatus=2
 "set guifont=Monaco:h16
 "set t_Co=256
-set tw=80
+"set tw=80
 set sw=4 " ShiftWidth
 set ts=4 " TabStop
 set sts=4 " SoftTabStop
@@ -158,7 +158,7 @@ Plugin 'fatih/vim-go'
 Plugin 'rust-lang/rust.vim'
 "Plugin 'klen/python-mode'
 Plugin 'leafgarland/typescript-vim'
-Plugin 'Quramy/tsuquyomi'
+"Plugin 'Quramy/tsuquyomi'
 "Plugin 'Shougo/vimproc.vim'
 Plugin 'akz92/vim-ionic2'
 
