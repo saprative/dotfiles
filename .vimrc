@@ -32,6 +32,7 @@ syntax on
 let mapleader="," " Leader map
 nmap <C-u> o<Esc>
 nnoremap <leader>ev :split $MYVIMRC<cr>
+nnoremap <leader>t :e .<cr>
 nmap <leader>tw :TW<cr>
 
 " Filetype on
