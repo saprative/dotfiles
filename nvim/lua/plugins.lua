@@ -1,46 +1,41 @@
--- This file can be loaded by calling `lua require('plugins')` from your init.vim
-
--- Only required if you have packer configured as `opt`
-vim.cmd [[packadd packer.nvim]]
-
-return require('packer').startup(function(use)
-
-    -- Colour 
-    use 'norcalli/nvim-colorizer.lua'
-
+require("lazy").setup({
+    
+   -- Colour 
+   'norcalli/nvim-colorizer.lua',
+    
     -- Packer can manage itself
-    use 'wbthomason/packer.nvim'
+    'wbthomason/packer.nvim',
 
     -- Fuzzy Finder Plugin
-    use {
+    {
         'nvim-telescope/telescope.nvim',
         tag = '0.1.1',
-        requires = { {'nvim-lua/plenary.nvim'} }
-    }
+        dependencies = { {'nvim-lua/plenary.nvim'} }
+    },
 
     -- Treesetter for syntax 
-    use {
+    {
         'nvim-treesitter/nvim-treesitter',
-        run = ':TSUpdate'
-    }
+        build = ':TSUpdate'
+    },
 
-    use 'nvim-treesitter/playground'
-
-    use {
+    'nvim-treesitter/playground',
+    {
         "nvim-neo-tree/neo-tree.nvim",
-        branch = "v2.x",
-        requires = {
-            "nvim-lua/plenary.nvim",
-            "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
-            "MunifTanjim/nui.nvim",
+        branch = "v3.x",
+        dependencies = {
+          "nvim-lua/plenary.nvim",
+          "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
+          "MunifTanjim/nui.nvim",
+          -- "3rd/image.nvim", -- Optional image support in preview window: See `# Preview Mode` for more information
         }
-    }
+    },
 
-    -- use { 'rose-pine/neovim', as = 'rose-pine' }
+    -- { 'rose-pine/neovim', as = 'rose-pine' },
 
-    use { "alexghergh/nvim-tmux-navigation" }
+    "alexghergh/nvim-tmux-navigation",
 
-    use {
+    {
       'glepnir/dashboard-nvim',
       event = 'VimEnter',
       config = function()
@@ -48,21 +43,22 @@ return require('packer').startup(function(use)
           -- config
         }
       end,
-      requires = {'nvim-tree/nvim-web-devicons'}
-    }
+      dependencies = {'nvim-tree/nvim-web-devicons'}
+    },
 
-    use {
+    {
       'VonHeikemen/lsp-zero.nvim',
       branch = 'v2.x',
-      requires = {
+      dependencies = {
 
         -- LSP Support
         {'neovim/nvim-lspconfig'},             -- Required
-        {                                      -- Optional
-          'williamboman/mason.nvim', run = function()
-            pcall(vim.cmd, 'MasonUpdate')
-          end,
-        },
+        -- {                                      -- Optional
+        --   'williamboman/mason.nvim',config = function()
+        --     pcall(vim.cmd, 'MasonUpdate')
+        --   end,
+        -- },
+        "williamboman/mason.nvim",
         {'williamboman/mason-lspconfig.nvim'}, -- Optional
 
         -- Autocompletion
@@ -70,26 +66,26 @@ return require('packer').startup(function(use)
         {'hrsh7th/cmp-nvim-lsp'}, -- Required
         {'L3MON4D3/LuaSnip'},     -- Required
       }
-    }
+    },
 
-    use "terrortylor/nvim-comment"
+    "terrortylor/nvim-comment",
 
-    use {
+    {
       'nvim-lualine/lualine.nvim',
-      requires = { 'nvim-tree/nvim-web-devicons', opt = true }
-    }
+      dependencies = { 'nvim-tree/nvim-web-devicons', opt = true }
+    },
 
-    use 'xarthurx/taskwarrior.vim'
+    'xarthurx/taskwarrior.vim',
     
 
     -- Git 
-    use { 'lewis6991/gitsigns.nvim' }
+    'lewis6991/gitsigns.nvim',
 
-    use {
+    {
         'm4xshen/autoclose.nvim',
         config = function()
             require("autoclose").setup()
-        end
-    }
+        end,
+    },
 
-end)
+})

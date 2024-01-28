@@ -1,4 +1,4 @@
-vim.keymap.set("n","<leader>t",":NeoTreeShowToggle<CR>")
+vim.keymap.set("n","<leader>t",":Neotree toggle<CR>")
 
 vim.cmd([[ let g:neo_tree_remove_legacy_commands = 1 ]])
 
