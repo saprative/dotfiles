@@ -2,7 +2,7 @@
 
 -- require("test")
 require("set")
-require("plugins")
+-- require("plugins")
 require("remap")
--- require('lazyinit')
--- require('lazysetup')
+require('lazyinit')
+require('lazysetup')
