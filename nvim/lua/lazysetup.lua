@@ -53,11 +53,12 @@ require("lazy").setup({
 
         -- LSP Support
         {'neovim/nvim-lspconfig'},             -- Required
-        {                                      -- Optional
-          'williamboman/mason.nvim',run = function()
-            pcall(vim.cmd, 'MasonUpdate')
-          end,
-        },
+        -- {                                      -- Optional
+        --   'williamboman/mason.nvim',config = function()
+        --     pcall(vim.cmd, 'MasonUpdate')
+        --   end,
+        -- },
+        "williamboman/mason.nvim",
         {'williamboman/mason-lspconfig.nvim'}, -- Optional
 
         -- Autocompletion
@@ -84,7 +85,7 @@ require("lazy").setup({
         'm4xshen/autoclose.nvim',
         config = function()
             require("autoclose").setup()
-        end
+        end,
     },
 
 })
