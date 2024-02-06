@@ -79,7 +79,7 @@ return require('packer').startup(function(use)
       requires = { 'nvim-tree/nvim-web-devicons', opt = true }
     }
 
-    use 'xarthurx/taskwarrior.vim'
+    -- use 'xarthurx/taskwarrior.vim'
     
 
     -- Git 

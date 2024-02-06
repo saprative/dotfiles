@@ -82,10 +82,43 @@ require("lazy").setup({
     'lewis6991/gitsigns.nvim',
 
     {
+      'linux-cultist/venv-selector.nvim',
+      dependencies = { 'neovim/nvim-lspconfig', 'nvim-telescope/telescope.nvim', 'mfussenegger/nvim-dap-python' },
+      opts = {
+        venvwrapper_path="~/.virtualenvs"
+        -- Your options go here
+        -- name = "venv",
+        -- auto_refresh = false
+      },
+      event = 'VeryLazy', -- Optional: needed only if you want to type `:VenvSelect` without a keymapping
+      keys = {
+        -- Keymap to open VenvSelector to pick a venv.
+        { '<leader>vs', '<cmd>VenvSelect<cr>' },
+        -- Keymap to retrieve the venv from a cache (the one previously used for the same project directory).
+        { '<leader>vc', '<cmd>VenvSelectCached<cr>' },
+      },
+    },
+
+    {
         'm4xshen/autoclose.nvim',
         config = function()
             require("autoclose").setup()
         end,
     },
 
+    {
+      "ribelo/taskwarrior.nvim",
+        opts = {
+          -- your configuration comes here
+          -- or leave it empty to use the default settings
+          -- refer to the configuration section below
+        },
+        -- or 
+        config = true
+    },
+
+    {
+        'arnarg/todotxt.nvim',
+        dependencies = {'MunifTanjim/nui.nvim'},
+    }
 })
