@@ -1,6 +1,6 @@
 vim.g.mapleader = ","
 
-vim.keymap.set("n","<leader>ev",":e ~/.dotfiles/nvim/<CR>")
+-- vim.keymap.set("n","<leader>ev",":e ~/.dotfiles/nvim/<CR>")
 vim.keymap.set("n","<leader>ex",":Ex<CR>")
 
 vim.keymap.set("n","<C-b>",":tabp<CR>")
