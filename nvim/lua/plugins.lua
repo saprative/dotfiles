@@ -9,7 +9,7 @@ require("lazy").setup({
     -- Fuzzy Finder Plugin
     {
         'nvim-telescope/telescope.nvim',
-        tag = '0.1.1',
+        tag = '0.1.5',
         dependencies = { {'nvim-lua/plenary.nvim'} }
     },
 
