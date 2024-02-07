@@ -6,3 +6,10 @@ vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
 vim.keymap.set("n","<leader>ev", function ()
         require('telescope.builtin').find_files({cwd="~/.dotfiles/nvim"})
     end,{})
+vim.keymap.set("n","<leader>df",function ()
+        require('telescope.builtin').find_files({
+            cwd="~/.dotfiles/",
+            hidden=true
+        })
+    end,{})
+
