@@ -12,7 +12,7 @@ This is the Dotfile that I personally use. If you like my dotfiles setup or have
 8. python3.10-venv
 
 # Setup 
-1. Clone Dotfile - git clone git@github.com:saprative/dotfiles.git .dotfile
+1. Clone Dotfile - git clone git@github.com:saprative/dotfiles.git .dotfiles
 2. Setup (go to your root folder ) - cd .dotfile && sh setup.sh
 3. Configure your git email and username 
     
