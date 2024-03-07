@@ -206,8 +206,10 @@ require("lazy").setup({
             'nvim-tree/nvim-web-devicons'     -- optional
         }
     },
-    { "catppuccin/nvim", name = "catppuccin", priority = 1000 }
-
+    { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
+    {
+     "windwp/nvim-ts-autotag"
+    },
     -- {
     --   'VonHeikemen/fine-cmdline.nvim',
     --   requires = {
