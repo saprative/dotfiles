@@ -2,7 +2,7 @@ require("lazy").setup({
 
    -- Colour 
    'norcalli/nvim-colorizer.lua',
-    
+
     -- Packer can manage itself
     'wbthomason/packer.nvim',
 
@@ -41,10 +41,7 @@ require("lazy").setup({
       config = function()
         require('dashboard').setup {
           -- config
-          config = {
-              week_header = {
-                enable = true,
-            theme = 'hyper',
+                    theme = 'hyper',
             config = {
               week_header = {
                enable = true,
@@ -80,9 +77,7 @@ require("lazy").setup({
               },
           }
        }
-            },
 
-        }
       end,
       dependencies = {'nvim-tree/nvim-web-devicons'}
     },
