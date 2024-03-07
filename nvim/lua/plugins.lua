@@ -13,6 +13,14 @@ require("lazy").setup({
         dependencies = { {'nvim-lua/plenary.nvim'} }
     },
 
+    {
+        'neovim/nvim-lspconfig',
+
+        dependencies = {
+            'jose-elias-alvarez/null-ls.nvim',      
+            'MunifTanjim/prettier.nvim'
+        }
+    },
     -- Treesetter for syntax 
     {
         'nvim-treesitter/nvim-treesitter',
@@ -176,4 +184,14 @@ require("lazy").setup({
           }
         end,
     },
+    {
+        'nvimdev/lspsaga.nvim',
+        config = function()
+            require('lspsaga').setup({})
+        end,
+        dependencies = {
+            'nvim-treesitter/nvim-treesitter', -- optional
+            'nvim-tree/nvim-web-devicons'     -- optional
+        }
+    }
 })

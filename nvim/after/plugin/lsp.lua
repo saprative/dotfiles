@@ -21,7 +21,7 @@ cmp.setup({
 
 
 require("mason-lspconfig").setup {
-    ensure_installed = { "lua_ls","jedi_language_server" },
+    ensure_installed = { "lua_ls","jedi_language_server","vtsls","tsserver","emmet_language_server",},
 }
 
 
