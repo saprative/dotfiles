@@ -44,6 +44,10 @@ require("lazy").setup({
           config = {
               week_header = {
                 enable = true,
+            theme = 'hyper',
+            config = {
+              week_header = {
+               enable = true,
               },
               shortcut = {
                 { desc = '󰊳 Update', group = '@property', action = 'Lazy update', key = 'u' },
@@ -61,6 +65,12 @@ require("lazy").setup({
                   action = 'Neorg workspace notes',
                   key = 'n',
                 },
+                -- {
+                --   desc = ' Apps',
+                --   group = 'DiagnosticHint',
+                --   action = 'Telescope app',
+                --   key = 'a',
+                -- },
                 {
                   desc = ' dotfiles',
                   group = 'Number',
@@ -70,6 +80,9 @@ require("lazy").setup({
               },
           }
        }
+            },
+
+        }
       end,
       dependencies = {'nvim-tree/nvim-web-devicons'}
     },
