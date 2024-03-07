@@ -10,6 +10,7 @@ This is the Dotfile that I personally use. If you like my dotfiles setup or have
 6. Ubuntu or Arch ( Suggested ) 
 7. VirtualenvWrapper
 8. python3.10-venv
+9. Taskwarrior
 
 # Setup 
 1. Clone Dotfile - git clone git@github.com:saprative/dotfiles.git .dotfile

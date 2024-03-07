@@ -1,5 +1,5 @@
 require("lazy").setup({
-    
+
    -- Colour 
    'norcalli/nvim-colorizer.lua',
     
@@ -41,7 +41,35 @@ require("lazy").setup({
       config = function()
         require('dashboard').setup {
           -- config
-        }
+          config = {
+              week_header = {
+                enable = true,
+              },
+              shortcut = {
+                { desc = '󰊳 Update', group = '@property', action = 'Lazy update', key = 'u' },
+                {
+                  icon = ' ',
+                  icon_hl = '@variable',
+                  desc = 'Files',
+                  group = 'Label',
+                  action = 'Telescope find_files',
+                  key = 'f',
+                },
+                {
+                  desc = ' Notes',
+                  group = 'DiagnosticHint',
+                  action = 'Neorg workspace notes',
+                  key = 'n',
+                },
+                {
+                  desc = ' dotfiles',
+                  group = 'Number',
+                  action = 'Neotree ~/.dotfiles',
+                  key = 'd',
+                },
+              },
+          }
+       }
       end,
       dependencies = {'nvim-tree/nvim-web-devicons'}
     },
@@ -129,7 +157,7 @@ require("lazy").setup({
         "nvim-neorg/neorg",
         build = ":Neorg sync-parsers",
         -- tag = "*",
-        dependencies = { "nvim-lua/plenary.nvim" },
+        dependencies = { "nvim-lua/plenary.nvim","hrsh7th/nvim-cmp" },
         config = function()
           require("neorg").setup {
             load = {
@@ -138,12 +166,26 @@ require("lazy").setup({
               ["core.dirman"] = { -- Manages Neorg workspaces
                 config = {
                   workspaces = {
-                    notes = "~/notes",
+                    notes = "~/.data/notes",
+                    default_workspace = "notes"
                   },
                 },
               },
+             ["core.completion"] = { -- Manages Neorg workspaces
+                config = {
+                    engine = "nvim-cmp"
+                },
+             },
             },
           }
         end,
     },
+    { "catppuccin/nvim", name = "catppuccin", priority = 1000 }
+
+    -- {
+    --   'VonHeikemen/fine-cmdline.nvim',
+    --   requires = {
+    --     {'MunifTanjim/nui.nvim'}
+    --   }
+    -- }
 })
