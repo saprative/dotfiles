@@ -210,6 +210,18 @@ require("lazy").setup({
     {
      "windwp/nvim-ts-autotag"
     },
+    {
+      "kelly-lin/ranger.nvim",
+      config = function()
+        require("ranger-nvim").setup({ replace_netrw = true })
+        vim.api.nvim_set_keymap("n", "<leader>rg", "", {
+          noremap = true,
+          callback = function()
+            require("ranger-nvim").open(true)
+          end,
+        })
+      end,
+    },
     -- {
     --   'VonHeikemen/fine-cmdline.nvim',
     --   requires = {
