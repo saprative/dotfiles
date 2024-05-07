@@ -81,7 +81,13 @@ require("lazy").setup({
       end,
       dependencies = {'nvim-tree/nvim-web-devicons'}
     },
-
+    {
+      "L3MON4D3/LuaSnip",
+      version = "v2.*", -- Replace <CurrentMajor> by the latest released major (first number of latest release)
+	-- install jsregexp (optional!).
+      -- build = "make install_jsregexp",
+      dependencies = { "rafamadriz/friendly-snippets" },
+    },
     {
       'VonHeikemen/lsp-zero.nvim',
       branch = 'v2.x',
@@ -192,6 +198,14 @@ require("lazy").setup({
     {
      "windwp/nvim-ts-autotag"
     },
+    {"ms-jpq/coq_nvim"},
+    {
+      "j-hui/fidget.nvim",
+      opts = {
+        -- options
+      },
+    },
+    { "rafamadriz/friendly-snippets" },
     -- {
     --   'VonHeikemen/fine-cmdline.nvim',
     --   requires = {

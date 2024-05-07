@@ -4,29 +4,89 @@ lsp.on_attach(function(client, bufnr)
   lsp.default_keymaps({buffer = bufnr})
 end)
 
--- (Optional) Configure lua language server for neovim
-require('lspconfig').lua_ls.setup(lsp.nvim_lua_ls())
-
-lsp.setup()
-
-local cmp = require('cmp')
-local cmp_action = require('lsp-zero').cmp_action()
-
-cmp.setup({
-  mapping = {
-    ['<Tab>'] = cmp_action.luasnip_supertab(),
-    ['<S-Tab>'] = cmp_action.luasnip_shift_supertab(),
-  }
-})
-
 
 require("mason-lspconfig").setup {
-    ensure_installed = { "lua_ls","jedi_language_server" },
+    ensure_installed = { "lua_ls","jedi_language_server","phpactor" },
+
 }
 
 
--- lsp.preset("recommended")
+-- (Optional) Configure language servers for neovim
+local lspconfig = require('lspconfig')
+lspconfig.lua_ls.setup(lsp.nvim_lua_ls())
+lspconfig.phpactor.setup {
+   init_options = {
+        ["language_server_phpstan.enabled"] = false,
+        ["language_server_psalm.enabled"] = false,
+    }
+}
+-- require('lspconfig').phpactor.setup({
+--     init_options = {
+--         ["language_server_phpstan.enabled"] = false,
+--         ["language_server_psalm.enabled"] = false,
+--     }
+-- })
 
+lsp.setup()
+
+require("luasnip.loaders.from_vscode").lazy_load()
+require'luasnip'.filetype_extend("typescript", {"typescriptreact"})
+
+local cmp = require('cmp')
+local cmp_action = require('lsp-zero').cmp_action()
+local luasnip = require("luasnip")
+
+cmp.setup({
+  snippet = {
+    expand = function(args)
+      require('luasnip').lsp_expand(args.body)
+    end,
+  },
+  mapping = {
+    -- ['<Tab>'] = cmp_action.luasnip_supertab(),
+    -- ['<S-Tab>'] = cmp_action.luasnip_shift_supertab(),
+        -- ... Your other mappings ...
+   ['<CR>'] = cmp.mapping(function(fallback)
+        if cmp.visible() then
+            if luasnip.expandable() then
+                luasnip.expand()
+            else
+                cmp.confirm({
+                    select = true,
+                })
+            end
+        else
+            fallback()
+        end
+    end),
+
+    ["<Tab>"] = cmp.mapping(function(fallback)
+      if cmp.visible() then
+        cmp.select_next_item()
+      elseif luasnip.locally_jumpable(1) then
+        luasnip.jump(1)
+      else
+        fallback()
+      end
+    end, { "i", "s" }),
+
+    ["<S-Tab>"] = cmp.mapping(function(fallback)
+      if cmp.visible() then
+        cmp.select_prev_item()
+      elseif luasnip.locally_jumpable(-1) then
+        luasnip.jump(-1)
+      else
+        fallback()
+      end
+    end, { "i", "s" }),
+
+    -- ... Your other mappings ...
+  },
+})
+
+
+
+-- lsp.preset("recommended")
 -- lsp.ensure_installed({
 --   'tsserver',
 -- })
@@ -35,20 +95,20 @@ require("mason-lspconfig").setup {
 lsp.nvim_workspace()
 
 
-local cmp_select = {behavior = cmp.SelectBehavior.Select}
-local cmp_mappings = lsp.defaults.cmp_mappings({
-  ['<C-p>'] = cmp.mapping.select_prev_item(cmp_select),
-  ['<C-n>'] = cmp.mapping.select_next_item(cmp_select),
-  ['<C-y>'] = cmp.mapping.confirm({ select = true }),
-  ["<C-Space>"] = cmp.mapping.complete(),
-})
-
-cmp_mappings['<Tab>'] = nil
-cmp_mappings['<S-Tab>'] = nil
-
-lsp.setup_nvim_cmp({
-  mapping = cmp_mappings
-})
+-- local cmp_select = {behavior = cmp.SelectBehavior.Select}
+-- local cmp_mappings = lsp.defaults.cmp_mappings({
+--   ['<C-p>'] = cmp.mapping.select_prev_item(cmp_select),
+--   ['<C-n>'] = cmp.mapping.select_next_item(cmp_select),
+--   ['<C-y>'] = cmp.mapping.confirm({ select = true }),
+--   ["<C-Space>"] = cmp.mapping.complete(),
+-- })
+--
+-- cmp_mappings['<Tab>'] = nil
+-- cmp_mappings['<S-Tab>'] = nil
+--
+-- lsp.setup_nvim_cmp({
+--   mapping = cmp_mappings
+-- })
 
 lsp.set_preferences({
     suggest_lsp_servers = false,
@@ -81,3 +141,15 @@ vim.diagnostic.config({
     virtual_text = true
 })
 
+
+local ls = require("luasnip")
+
+vim.keymap.set({"i"}, "<C-K>", function() ls.expand() end, {silent = true})
+vim.keymap.set({"i", "s"}, "<C-L>", function() ls.jump( 1) end, {silent = true})
+vim.keymap.set({"i", "s"}, "<C-J>", function() ls.jump(-1) end, {silent = true})
+
+vim.keymap.set({"i", "s"}, "<C-E>", function()
+	if ls.choice_active() then
+		ls.change_choice(1)
+	end
+end, {silent = true})
