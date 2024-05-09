@@ -13,12 +13,24 @@ require("lazy").setup({
         dependencies = { {'nvim-lua/plenary.nvim'} }
     },
 
+    {
+        'neovim/nvim-lspconfig',
+
+        dependencies = {
+            'jose-elias-alvarez/null-ls.nvim',      
+            'MunifTanjim/prettier.nvim'
+        }
+    },
     -- Treesetter for syntax 
     {
         'nvim-treesitter/nvim-treesitter',
         build = ':TSUpdate'
     },
-
+    {
+        "vhyrro/luarocks.nvim",
+        priority = 1000,
+        config = true,
+    },
     'nvim-treesitter/playground',
     {
         "nvim-neo-tree/neo-tree.nvim",
@@ -169,9 +181,9 @@ require("lazy").setup({
     },
     {
         "nvim-neorg/neorg",
-        build = ":Neorg sync-parsers",
+        -- build = ":Neorg sync-parsers",
         -- tag = "*",
-        dependencies = { "nvim-lua/plenary.nvim","hrsh7th/nvim-cmp" },
+        dependencies = {"nvim-lua/plenary.nvim","hrsh7th/nvim-cmp","luarocks.nvim" },
         config = function()
           require("neorg").setup {
             load = {
@@ -194,6 +206,16 @@ require("lazy").setup({
           }
         end,
     },
+    {
+        'nvimdev/lspsaga.nvim',
+        config = function()
+            require('lspsaga').setup({})
+        end,
+        dependencies = {
+            'nvim-treesitter/nvim-treesitter', -- optional
+            'nvim-tree/nvim-web-devicons'     -- optional
+        }
+    },
     { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
     {
      "windwp/nvim-ts-autotag"
@@ -206,6 +228,18 @@ require("lazy").setup({
       },
     },
     { "rafamadriz/friendly-snippets" },
+    {
+      "kelly-lin/ranger.nvim",
+      config = function()
+        require("ranger-nvim").setup({ replace_netrw = true })
+        vim.api.nvim_set_keymap("n", "<leader>rg", "", {
+          noremap = true,
+          callback = function()
+            require("ranger-nvim").open(true)
+          end,
+        })
+      end,
+    },
     -- {
     --   'VonHeikemen/fine-cmdline.nvim',
     --   requires = {

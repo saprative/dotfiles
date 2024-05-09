@@ -1,4 +1,15 @@
 require'nvim-treesitter.configs'.setup {
+    filetypes = {
+        'html', 'javascript', 'typescript', 'javascriptreact', 'typescriptreact', 'svelte', 'vue', 'tsx', 'jsx', 'rescript',
+        'xml',
+        'php',
+        'markdown',
+        'astro', 'glimmer', 'handlebars', 'hbs'
+    },
+    skip_tags = {
+      'area', 'base', 'br', 'col', 'command', 'embed', 'hr', 'img', 'slot',
+      'input', 'keygen', 'link', 'meta', 'param', 'source', 'track', 'wbr','menuitem'
+    },
   -- A list of parser names, or "all" (the five listed parsers should always be installed)
   ensure_installed = { "c", "lua", "vim", "vimdoc", "query","python"},
 
@@ -12,6 +23,9 @@ require'nvim-treesitter.configs'.setup {
   -- Recommendation: set to false if you don't have `tree-sitter` CLI installed locally
   auto_install = true,
 
+  autotag = {
+    enable = true,
+  },
   -- List of parsers to ignore installing (for "all")
   ignore_install = { "javascript" },
 
@@ -26,6 +40,7 @@ require'nvim-treesitter.configs'.setup {
     -- Instead of true it can also be a list of languages
     additional_vim_regex_highlighting = false,
   },
+
 }
 
 

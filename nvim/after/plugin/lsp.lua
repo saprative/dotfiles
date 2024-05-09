@@ -6,8 +6,8 @@ end)
 
 
 require("mason-lspconfig").setup {
-    ensure_installed = { "lua_ls","jedi_language_server","phpactor" },
 
+    ensure_installed = { "lua_ls","jedi_language_server","phpactor","vtsls","tsserver","emmet_language_server",},
 }
 
 
