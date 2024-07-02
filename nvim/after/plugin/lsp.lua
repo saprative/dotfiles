@@ -7,7 +7,16 @@ end)
 
 require("mason-lspconfig").setup {
 
-    ensure_installed = { "lua_ls","jedi_language_server","phpactor","vtsls","tsserver","emmet_language_server",},
+    ensure_installed = { 
+        "lua_ls",
+        "jedi_language_server",
+        "tailwindcss",
+        "eslint",
+        "phpactor",
+        "tsserver",
+        "vtsls",
+        "eslint",
+        "emmet_language_server",},
 }
 
 
@@ -153,3 +162,5 @@ vim.keymap.set({"i", "s"}, "<C-E>", function()
 		ls.change_choice(1)
 	end
 end, {silent = true})
+
+vim.keymap.set("n", "<leader>a", require("lspimport").import, { noremap = true })

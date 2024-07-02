@@ -228,6 +228,7 @@ require("lazy").setup({
       },
     },
     { "rafamadriz/friendly-snippets" },
+    { "stevanmilic/nvim-lspimport" },
     {
       "kelly-lin/ranger.nvim",
       config = function()
