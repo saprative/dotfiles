@@ -11,6 +11,7 @@ ln -sf ~/.dotfiles/.gitconfig ~/
 ln -sfr ~/.dotfiles/nvim ~/.config/
 ln -sf ~/.dotfiles/.zshrc ~/.zshrc
 ln -sf ~/.dotfiles/.taskrc ~/.taskrc
+ln -sf ~/.dotfiles/.vimrc ~/.vimrc
 
 # Promt
 echo "Congratulations!! Setup is Successful."
