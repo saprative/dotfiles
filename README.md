@@ -12,6 +12,8 @@ This is the Dotfile that I personally use. If you like my dotfiles setup or have
 8. python3.10-venv
 9. Taskwarrior
 10. TPM - Tmux Plugin Manager
+11. Catppuccin Theme for terminal
+12. Hack Nerd Font - Medium
 
 # Setup 
 1. Clone Dotfile - git clone git@github.com:saprative/dotfiles.git .dotfiles
