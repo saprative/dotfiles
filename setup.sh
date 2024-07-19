@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Create .config directory if not there
+mkdir -p "$HOME/.config"
+
 # Symbolink files
 ln -sf ~/.dotfiles/.vimrc ~/
 ln -sf ~/.dotfiles/.tmux.conf ~/
