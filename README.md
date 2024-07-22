@@ -14,6 +14,8 @@ This is the Dotfile that I personally use. If you like my dotfiles setup or have
 10. TPM - Tmux Plugin Manager
 11. Catppuccin Theme for terminal
 12. Hack Nerd Font - Medium
+13. NVM & NodeJS
+14. Python 
 
 # Setup 
 1. Clone Dotfile - git clone git@github.com:saprative/dotfiles.git .dotfiles
