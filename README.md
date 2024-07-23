@@ -16,6 +16,7 @@ This is the Dotfile that I personally use. If you like my dotfiles setup or have
 12. Hack Nerd Font - Medium
 13. NVM & NodeJS
 14. Python 
+15. Alacritty ( if using i3 )
 
 # Setup 
 1. Clone Dotfile - git clone git@github.com:saprative/dotfiles.git .dotfiles
