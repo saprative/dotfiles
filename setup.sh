@@ -13,6 +13,7 @@ ln -sf ~/.dotfiles/.zshrc ~/.zshrc
 ln -sf ~/.dotfiles/.taskrc ~/.taskrc
 ln -sf ~/.dotfiles/.vimrc ~/.vimrc
 ln -sf ~/.dotfiles/.Xresources ~/.Xresources
+ln -sf ~/.dotfiles/.i3 ~/
 
 # Promt
 echo "Congratulations!! Setup is Successful."
