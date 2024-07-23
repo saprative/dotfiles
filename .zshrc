@@ -102,7 +102,6 @@ source $ZSH/oh-my-zsh.sh
 
 export WORKON_HOME=$HOME/.virtualenvs
 export PROJECT_HOME=$HOME/Devel
-source $HOME/.local/bin/virtualenvwrapper.sh
 
 alias tl="task list"
 alias python=python3
@@ -119,4 +118,26 @@ case ":$PATH:" in
 esac
 # pnpm end
 
-clear
+# Check if the current OS is Arch Linux or Ubuntu
+if [[ -f /etc/os-release ]]; then
+  . /etc/os-release
+  if [[ "$ID_LIKE" == "arch" ]]; then
+    # echo "Running script on Arch Linux"
+    source /usr/bin/virtualenvwrapper.sh
+    # Add your specific commands for Arch Linux here
+    # For example:
+    # sudo pacman -Syu
+    # sudo pacman -S your-package
+    clear
+
+  elif [[ "$ID" == "ubuntu" ]]; then
+    echo "Running script on Ubuntu"
+    source $HOME/.local/bin/virtualenvwrapper.sh
+    # Add your specific commands for Ubuntu here
+    # For example:
+    # sudo apt update
+    # sudo apt install -y your-package
+
+  fi
+fi
+

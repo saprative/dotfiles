@@ -12,6 +12,7 @@ ln -sfr ~/.dotfiles/nvim ~/.config/
 ln -sf ~/.dotfiles/.zshrc ~/.zshrc
 ln -sf ~/.dotfiles/.taskrc ~/.taskrc
 ln -sf ~/.dotfiles/.vimrc ~/.vimrc
+ln -sf ~/.dotfiles/.Xresources ~/.Xresources
 
 # Promt
 echo "Congratulations!! Setup is Successful."
