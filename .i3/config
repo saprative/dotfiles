@@ -60,7 +60,7 @@ bindsym $mod+Ctrl+m exec alacritty -e 'alsamixer'
 # Start Applications
 # bindsym $mod+Ctrl+b exec terminal -e 'bmenu'
 bindsym $mod+Ctrl+b exec alacritty -e 'bmenu'
-bindsym $mod+F2 exec palemoon
+bindsym $mod+F2 exec zen-browser
 bindsym $mod+F3 exec pcmanfm
 # bindsym $mod+F3 exec alacritty -e ranger
 bindsym $mod+Shift+F3 exec pcmanfm_pkexec
