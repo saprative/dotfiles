@@ -27,6 +27,7 @@ font xft:URWGothic-Book 11
 floating_modifier $mod
 
 # start a terminal
+# install alarcritty
 # bindsym $mod+Return exec terminal
 bindsym $mod+Return exec alacritty
 
