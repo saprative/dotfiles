@@ -17,9 +17,11 @@ This is the Dotfile that I personally use. If you like my dotfiles setup or have
 13. NVM & NodeJS
 14. Python 
 15. Alacritty ( if using i3 )
+16. Emacs > 30.1
 
 # Setup 
 1. Clone Dotfile - git clone git@github.com:saprative/dotfiles.git .dotfiles
 2. Setup (go to your root folder ) - cd .dotfile && sh setup.sh
 3. Configure your git email and username 
+4. Sync a .data file in your root folder
     
