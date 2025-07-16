@@ -6,10 +6,23 @@ require("lazy").setup({
     -- Packer can manage itself
     'wbthomason/packer.nvim',
 
+    {
+    "kawre/leetcode.nvim",
+        build = ":TSUpdate html", -- if you have `nvim-treesitter` installed
+        dependencies = {
+            "nvim-telescope/telescope.nvim",
+            -- "ibhagwan/fzf-lua",
+            "nvim-lua/plenary.nvim",
+            "MunifTanjim/nui.nvim",
+        },
+        opts = {
+             lang = "python",          -- configuration goes here
+        },
+    },
     -- Fuzzy Finder Plugin
     {
         'nvim-telescope/telescope.nvim',
-        tag = '0.1.5',
+        tag = '0.1.8',
         dependencies = { {'nvim-lua/plenary.nvim'} }
     },
 
@@ -203,6 +216,8 @@ require("lazy").setup({
              },
             },
           }
+          vim.wo.foldlevel = 99
+          vim.wo.conceallevel = 2
         end,
     },
     {

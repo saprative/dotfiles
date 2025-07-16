@@ -132,7 +132,7 @@ if [[ -f /etc/os-release ]]; then
 
   elif [[ "$ID" == "ubuntu" ]]; then
     echo "Running script on Ubuntu"
-    source $HOME/.local/bin/virtualenvwrapper.sh
+    # source $HOME/.local/bin/virtualenvwrapper.sh
     # Add your specific commands for Ubuntu here
     # For example:
     # sudo apt update
@@ -141,3 +141,9 @@ if [[ -f /etc/os-release ]]; then
   fi
 fi
 
+
+# Created by `pipx` on 2025-05-09 03:18:28
+export PATH="$PATH:/home/sappy/.local/bin"
+
+#Sappy
+# alias bench='uvx --from frappe-bench bench

@@ -13,7 +13,7 @@ require("mason-lspconfig").setup {
         "tailwindcss",
         "eslint",
         "phpactor",
-        "tsserver",
+        "ts_ls",
         "vtsls",
         "eslint",
         "emmet_language_server",},
@@ -130,7 +130,7 @@ lsp.set_preferences({
 })
 
 lsp.on_attach(function(client, bufnr)
-  local opts = {buffer = bufnr, remap = false}
+  local opts = {buffer = bufnr, remap = false, silent=true}
 
   vim.keymap.set("n", "<C-]>", function() vim.lsp.buf.definition() end, opts)
   vim.keymap.set("n", "K", function() vim.lsp.buf.hover() end, opts)
