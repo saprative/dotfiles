@@ -43,7 +43,7 @@
 
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
-(setq org-directory "~/org/")
+(setq org-directory "~/.data/org/")
 
 
 ;; Whenever you reconfigure a package, make sure to wrap your config in an
@@ -78,9 +78,98 @@
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
 
+(after! org
+  ;; Default notes file → inbox.org
+  (setq org-default-notes-file (expand-file-name "inbox.org" org-directory))
+  (setq org-default-projects-file (expand-file-name "projects.org" org-directory))
 
-(setq default-directory "~")
+  ;; All org files in `org-agenda-files` are valid refile targets
+  (setq org-refile-targets '((org-agenda-files :maxlevel . 3)))
 
+  ;; Show full outline paths
+  (setq org-refile-use-outline-path 'file)
+
+  ;; Allow creating new headings when refiling
+  (setq org-refile-allow-creating-parent-nodes 'confirm)
+
+  ;; TODO and PROJ
+  (setq org-todo-keywords
+        '((sequence
+           "TODO(t)"   ; normal task
+           "PROJ(p)"   ; project
+           "|"         ; separator: before = active, after = done
+           "DONE(d)"   ; finished
+           "CANCELLED(c)")))
+
+  ;; Capture templates
+  (setq org-capture-templates
+        '(
+          ;; 1. Ideas goes under a headline
+          ("t" "Todo" entry (file+headline org-default-notes-file "Tasks")
+           "* TODO %?\n  %U\n  %a")
+
+          ;; 2. Projects goes under a headline
+           ("p" "Projects" entry (file+headline org-default-projects-file "Projects")
+           "* TODO %? [/]\n  %U\n  %a")
+
+
+        ))
+   (setq org-agenda-custom-commands
+        '(
+          ("d" "Dashboard"
+           (
+
+             ;; Inbox
+            (tags-todo "*"
+                       ((org-agenda-files (list org-default-notes-file))
+                        (org-agenda-overriding-header "📥 Inbox")))
+
+            ;; Projects (only PROJ tasks)
+            (todo "PROJ"
+                  ((org-agenda-files (list org-default-projects-file))
+                   (org-agenda-overriding-header "📂 Projects")))
+
+            ;; ✅ All tasks (exclude inbox + projects)
+            (todo "*"
+                  ((org-agenda-files
+                    (seq-remove (lambda (f)
+                                  (member f (list org-default-notes-file
+                                                  org-default-projects-file)))
+                                (org-agenda-files)))
+                   (org-agenda-overriding-header "✅ All Other Tasks")))
+
+            ;; Daily agenda
+            (agenda ""
+                    ((org-agenda-span 1)
+                     (org-agenda-start-day "0d")   ;; force today
+                     (org-agenda-overriding-header "📅 Today")))
+            ;; Weekly agenda
+            (agenda ""
+                    ((org-agenda-span 7)
+                     (org-agenda-start-day "+0d")
+                     (org-agenda-overriding-header "🗓️ Weekly Agenda"))))))))
+
+;; Vim Bindings
+(global-set-key (kbd "C-S-h") help-map)
+(map! "C-h" nil) ;; unbind
+(map! :n "C-h" #'windmove-left
+      :n "C-j" #'windmove-down
+      :n "C-k" #'windmove-up
+      :n "C-l" #'windmove-right)
+;; Org Roam
+(setq org-roam-directory org-directory)
+
+(after! org-roam
+  :config
+  (setq org-roam-database-connector 'sqlite3)
+  (setq org-roam-capture-templates
+        '(("d" "default" plain "%?"
+           :if-new (file+head "${slug}.org"
+                              "#+title: ${title}\n")
+           :unnarrowed
+           t))))
+
+;; Dashboard
 (defun my-dashboard-banner ()
   (let* ((banner '("|--------------------------------------------------|"
                    "|   ╔═╗┌─┐┌─┐┌─┐┬ ┬┌─┐  ╔╗╔┌─┐┌┬┐┌─┐┌┐ ┌─┐┌─┐┬┌─   |"
@@ -100,25 +189,3 @@
 
 (setq +doom-dashboard-ascii-banner-fn #'my-dashboard-banner)
 
-(after! org
-
-  (setq org-directory "~/.data/org/")
-
-  (setq org-capture-templates
-        '(
-          ("t" "Todo" entry
-           (file+headline "todo.org" "Tasks")
-           "* [ ] %?\n  %U\n  %a")
-
-          ("n" "Quick Notes" entry
-           (file+headline "notes.org" "Quick Notes")
-           "* %u %?\n  %a")
-
-          ("j" "Journal" entry
-           (file+olp+datetree "journal.org")
-           "* %?\nEntered on %U\n  %i\n  %a")
-
-          ("l" "Link" entry
-           (file "links.org")
-           "* %a\n%U\n%?")
-        )))

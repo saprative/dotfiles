@@ -3,7 +3,7 @@
 
 " General Setup
 set number
-"set relativenumber
+set relativenumber
 set mouse=a
 set ruler
 "set noexpandtab

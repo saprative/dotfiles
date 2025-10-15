@@ -21,6 +21,25 @@ require("lazy").setup({
     },
     -- Fuzzy Finder Plugin
     {
+      'nvim-orgmode/orgmode',
+      event = 'VeryLazy',
+      ft = { 'org' },
+      config = function()
+        -- Setup orgmode
+        require('orgmode').setup({
+          org_agenda_files = '~/.data/org/*',
+          org_default_notes_file = '~/.data/org/todo.org',
+        })
+
+        -- NOTE: If you are using nvim-treesitter with ~ensure_installed = "all"~ option
+        -- add ~org~ to ignore_install
+        -- require('nvim-treesitter.configs').setup({
+        --   ensure_installed = 'all',
+        --   ignore_install = { 'org' },
+        -- })
+      end,
+    },
+    {
         'nvim-telescope/telescope.nvim',
         tag = '0.1.8',
         dependencies = { {'nvim-lua/plenary.nvim'} }
@@ -147,6 +166,7 @@ require("lazy").setup({
 
     -- Git 
     'lewis6991/gitsigns.nvim',
+    'tpope/vim-fugitive',
 
     {
       "linux-cultist/venv-selector.nvim",

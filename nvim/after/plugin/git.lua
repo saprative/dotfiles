@@ -1,4 +1,4 @@
-require('gitsigns').setup {
+require('gitsigns').setup({
   signs = {
     add          = { text = '│' },
     change       = { text = '│' },
@@ -39,4 +39,8 @@ require('gitsigns').setup {
   yadm = {
     enable = false
   },
-}
+})
+
+-- Git Fugitive
+vim.keymap.set('n','<leader>gd',':Git diff<CR>')
+vim.keymap.set('n','<leader>gc',':Git commit<CR>')

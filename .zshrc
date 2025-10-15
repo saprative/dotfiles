@@ -131,7 +131,7 @@ if [[ -f /etc/os-release ]]; then
     clear
 
   elif [[ "$ID" == "ubuntu" ]]; then
-    echo "Running script on Ubuntu"
+    # echo "Running script on Ubuntu"
     # source $HOME/.local/bin/virtualenvwrapper.sh
     # Add your specific commands for Ubuntu here
     # For example:
