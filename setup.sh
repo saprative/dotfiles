@@ -9,15 +9,15 @@ ln -sf ~/.dotfiles/.vimrc ~/
 ln -sf ~/.dotfiles/.tmux.conf ~/
 # ln -sf ~/.dotfiles/.emacs ~/
 ln -sf ~/.dotfiles/.gitconfig ~/
-ln -sfr ~/.dotfiles/nvim ~/.config/
+ln -sf ~/.dotfiles/nvim ~/.config/
 ln -sf ~/.dotfiles/.zshrc ~/.zshrc
 ln -sf ~/.dotfiles/.taskrc ~/.taskrc
 ln -sf ~/.dotfiles/.vimrc ~/.vimrc
 ln -sf ~/.dotfiles/.Xresources ~/.Xresources
-ln -sfr ~/.dotfiles/.i3 ~/
-ln -sfr ~/.dotfiles/alacritty ~/.config/
-ln -sfr ~/.dotfiles/.emacs.d ~/
-ln -sfr ~/.dotfiles/.doom.d ~/
+ln -sf ~/.dotfiles/.i3 ~/
+ln -sf ~/.dotfiles/alacritty ~/.config/
+ln -sf ~/.dotfiles/.emacs.d ~/
+ln -sf ~/.dotfiles/.doom.d ~/
 
 cd .emacs.d/bin/ && ./doom install
 
