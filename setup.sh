@@ -16,10 +16,10 @@ ln -sf ~/.dotfiles/.vimrc ~/.vimrc
 ln -sf ~/.dotfiles/.Xresources ~/.Xresources
 ln -sf ~/.dotfiles/.i3 ~/
 ln -sf ~/.dotfiles/alacritty ~/.config/
-ln -sf ~/.dotfiles/.emacs.d ~/
+#ln -sf ~/.dotfiles/.emacs.d ~/
 ln -sf ~/.dotfiles/.doom.d ~/
 
-cd .emacs.d/bin/ && ./doom install
+#cd .emacs.d/bin/ && ./doom install
 
 # Promt
 echo "Congratulations!! Setup is Successful."
