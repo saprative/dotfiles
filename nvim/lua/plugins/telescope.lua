@@ -1,3 +1,3 @@
-require({
+return {
 	"nvim-telescope/telescope.nvim",
-})
+}
