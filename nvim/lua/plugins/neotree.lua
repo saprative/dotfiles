@@ -17,4 +17,10 @@ return {
 			},
 		},
 	},
+	config = function(_, opts)
+		require("neo-tree").setup(opts)
+		vim.keymap.set("n", "<leader>t", ":Neotree toggle<CR>")
+
+		vim.cmd([[ let g:neo_tree_remove_legacy_commands = 1 ]])
+	end,
 }
