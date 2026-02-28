@@ -1,7 +1,7 @@
 require("lazy").setup({
 
 	-- Colour
-	"norcalli/nvim-colorizer.lua",
+	"norcalli/nvim-colorizer.lua"
 
 	-- Packer can manage itself
 

@@ -164,3 +164,19 @@ unset __conda_setup
 # <<< conda initialize <<<
 
 export EDITOR=nvim
+
+# Added by Antigravity
+export PATH="/Users/sappy/.antigravity/antigravity/bin:$PATH"
+
+# bun completions
+[ -s "/Users/sappy/.bun/_bun" ] && source "/Users/sappy/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+
+# opencode
+export PATH=/Users/sappy/.opencode/bin:$PATH
+
+# OpenClaw Completion
+source "/Users/sappy/.openclaw/completions/openclaw.zsh"
