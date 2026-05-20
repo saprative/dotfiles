@@ -1,26 +1,31 @@
 return {
 	"nvim-neo-tree/neo-tree.nvim",
 	branch = "v3.x",
-	enabled = false,
+	enabled = true,
 	dependencies = {
 		"nvim-lua/plenary.nvim",
-		"nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
+		"nvim-tree/nvim-web-devicons",
 		"MunifTanjim/nui.nvim",
-		-- "3rd/image.nvim", -- Optional image support in preview window: See `# Preview Mode` for more information
 	},
 	opts = {
 		filesystem = {
 			filtered_items = {
-				visible = false, -- when true, they will just be displayed differently than normal items
-				hide_dotfile = true,
-				hide_gitignored = true,
-				hide_hidden = true, -- only works on Windows for hidden files/directories
+				visible = true,
+				show_hidden_count = true,
+				hide_dotfiles = false,
+				hide_gitignored = false,
+				hide_by_name = {
+					-- ".DS_Store",
+					-- "thumbs.db"
+				},
+				never_show = {},
 			},
 		},
 	},
 	config = function(_, opts)
 		require("neo-tree").setup(opts)
-		vim.keymap.set("n", "<leader>t", ":Neotree toggle<CR>")
+		vim.keymap.set("n", "<leader>e", ":Neotree toggle<CR>", { desc = "Explorer NeoTree (root dir)" })
+		vim.keymap.set("n", "<leader>t", ":Neotree toggle<CR>", { desc = "Explorer NeoTree" })
 		vim.cmd([[ let g:neo_tree_remove_legacy_commands = 1 ]])
 	end,
 }

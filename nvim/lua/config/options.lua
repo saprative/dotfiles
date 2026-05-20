@@ -17,3 +17,7 @@ vim.opt.expandtab = true
 vim.opt.smartindent = true
 
 vim.opt.cmdheight = 0
+vim.opt.scrolloff = 8
+vim.opt.updatetime = 50
+vim.opt.wrap = false
+vim.opt.signcolumn = "yes"
