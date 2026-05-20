@@ -1,27 +1,38 @@
 # Saprative's Dotfile
-This is the Dotfile that I personally use. If you like my dotfiles setup or have any questions or suggestion email me at saprative@gmail.com
 
-# Dependency - Install these before you setup my dotfile
-1. Zsh
-2. Oh My Zsh
-3. Git
-4. NeoVim v0.9
-5. Tmux
-6. Ubuntu or Arch ( Suggested ) 
-7. VirtualenvWrapper
-8. python3.10-venv
-9. Taskwarrior
-10. TPM - Tmux Plugin Manager
-11. Catppuccin Theme for terminal
-12. Hack Nerd Font - Medium
-13. NVM & NodeJS
-14. Python 
-15. Alacritty ( if using i3 )
-16. Emacs > 30.1
+Personal development environment configuration. If you have questions or suggestions, reach out at [saprative@gmail.com](mailto:saprative@gmail.com).
 
-# Setup 
-1. Clone Dotfile - git clone git@github.com:saprative/dotfiles.git .dotfiles
-2. Setup (go to your root folder ) - cd .dotfile && sh setup.sh
-3. Configure your git email and username 
-4. Sync a .data file in your root folder
-    
+## 🚀 Quick Start
+
+1. **Clone the repo:**
+   ```bash
+   git clone git@github.com:saprative/dotfiles.git ~/.dotfiles
+   ```
+2. **Run Setup:**
+   ```bash
+   cd ~/.dotfiles && sh setup.sh
+   ```
+3. **Finalize:**
+   - Configure your git email and username.
+   - Sync a `.data` file in your root folder.
+
+## 📦 Dependencies
+
+Ensure these are installed before running the setup:
+
+- **Shell:** Zsh, Oh My Zsh
+- **Editors:** Neovim (v0.9+), Emacs (> 30.1)
+- **Terminal:** Tmux, Alacritty (optional, recommended for i3), Hack Nerd Font
+- **Environment:** Python 3.10+, NodeJS (NVM), Taskwarrior
+- **OS:** macOS (Darwin), Ubuntu, or Arch Linux
+
+## 🤖 AI Assistance
+
+This repository includes optimized contexts for AI assistants:
+- `AGENTS.md`: Shared architectural context.
+- `GEMINI.md`: Instructions for Gemini.
+- `CLAUDE.md`: Instructions for Claude.
+
+---
+*Maintained by Saprative*
+
