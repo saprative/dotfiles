@@ -71,7 +71,7 @@ if [ -f "$HOME/.dotfiles/.env" ]; then
 fi
 
 # Standard plugins
-plugins=(git zsh-autosuggestions zsh-syntax-highlighting)
+plugins=(git zsh-autosuggestions zsh-syntax-highlighting kubectl)
 
 source $ZSH/oh-my-zsh.sh
 

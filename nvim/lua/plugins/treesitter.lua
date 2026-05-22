@@ -8,6 +8,5 @@ return {
 			autotag = { enable = true },
 		},
 	},
-	{ "nvim-treesitter/playground", cmd = "TSPlaygroundToggle" },
 	{ "windwp/nvim-ts-autotag", opts = {} },
 }

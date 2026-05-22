@@ -1,6 +1,6 @@
 return {
 	{ "norcalli/nvim-colorizer.lua", opts = {} },
-	{ "fidget.nvim", opts = {} },
+	{ "j-hui/fidget.nvim", opts = {} },
 	{
 		"nvim-lualine/lualine.nvim",
 		opts = {

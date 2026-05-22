@@ -1,21 +1,36 @@
 return {
-	"nvim-orgmode/orgmode",
-	event = "VeryLazy",
-	ft = { "org" },
+	"nvim-neorg/neorg",
+	lazy = false, -- Neorg v9+ should not be lazy loaded
+	version = "*", -- Pin to stable
+	build = ":Neorg sync-parsers",
+	dependencies = {
+		"nvim-lua/plenary.nvim",
+		"nvim-neorg/lua-utils.nvim",
+		"nvim-neorg/pathlib.nvim",
+		"nvim-nio",
+		"MunifTanjim/nui.nvim",
+	},
 	config = function()
-		-- Setup orgmode
-		require("orgmode").setup({
-			org_agenda_files = "~/.data/org/*",
-			org_default_notes_file = "~/.data/org/todo.org",
+		require("neorg").setup({
+			load = {
+				["core.defaults"] = {},
+				["core.concealer"] = {},
+				["core.dirman"] = {
+					config = {
+						workspaces = {
+							notes = "~/.data/notes",
+						},
+						default_workspace = "notes",
+					},
+				},
+				["core.completion"] = {
+					config = {
+						engine = "nvim-cmp",
+					},
+				},
+			},
 		})
-		vim.keymap.set("n", "<leader>no", ":Neorg workspace notes<CR>")
-		vim.keymap.set("n", "<leader>nj", ":Neorg journal<CR>")
-
-		-- NOTE: If you are using nvim-treesitter with ~ensure_installed = "all"~ option
-		-- add ~org~ to ignore_install
-		-- require('nvim-treesitter.configs').setup({
-		--   ensure_installed = 'all',
-		--   ignore_install = { 'org' },
-		-- })
+		vim.keymap.set("n", "<leader>no", ":Neorg workspace notes<CR>", { desc = "Neorg notes" })
+		vim.keymap.set("n", "<leader>nj", ":Neorg journal<CR>", { desc = "Neorg journal" })
 	end,
 }

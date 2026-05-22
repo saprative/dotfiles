@@ -1,6 +1,13 @@
 return {
 	"folke/noice.nvim",
 	opts = {
+		lsp = {
+			override = {
+				["vim.lsp.util.convert_input_to_markdown_lines"] = true,
+				["vim.lsp.util.set_lines"] = true,
+				["vim.diagnostic.config"] = true,
+			},
+		},
 		cmdline = {
 			enabled = true,
 		},
